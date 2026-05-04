@@ -1,0 +1,56 @@
+<meta charset="UTF-8">
+
+<style>
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+
+</style>
+
+</head>
+<body>
+
+<div style="text-align: center;">
+<button onclick="omikuji()" style="padding: 7px 7px;">
+  おみくじ
+</button>
+  <p id="result" style="min-height: 10em;"></p>
+
+  <p id="result"></p>
+
+  <p>
+    <a href="index.html" style="font-size: 12px; color: gray;">もどる</a>
+  </p>
+
+
+</div>
+
+<script>
+function omikuji() {
+  const results = ["大吉〜", "中吉〜", "小吉〜", "凶〜", "床があなたを見ている"];
+  const random = Math.floor(Math.random() * results.length);
+
+  const text = results[random];
+let i = 0;
+const speed = 150;
+
+document.getElementById("result").textContent = ""; // 最初に空にする
+
+const interval = setInterval(() => {
+  document.getElementById("result").textContent += text[i];
+  i++;
+  if (i >= text.length) clearInterval(interval);
+}, speed);
+
+}
+
+
+</script>
+
+</body>
+</html>
