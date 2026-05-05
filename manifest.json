@@ -1,0 +1,8 @@
+{
+  "name": "solune_lab",
+  "short_name": "おみくじ",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff"
+}
