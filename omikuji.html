@@ -1,33 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
+  font-family: sans-serif;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+  max-width: 500px;
+  width: 100%;
+}
+
+button {
+  padding: 16px 24px;
+  font-size: clamp(16px, 5vw, 20px);
+  border-radius: 10px;
+
+  background-color: white;
+  color: black;
+
+  border: 1px solid #ccc;
+
+  box-shadow: 4px 4px 0px black;
+  cursor: pointer;
+}
+
+button:active {
+  box-shadow: 0px 0px 0px black;
+  transform: translate(4px, 4px);
 }
 
 
-</style>
 
+#result {
+  min-height: 6em;
+  font-size: clamp(20px, 6vw, 32px);
+  margin-top: 20px;
+
+ font-family: "Times New Roman", "Hiragino Mincho ProN", "Yu Mincho", serif;
+
+}
+
+.back {
+  font-size: 14px;
+  color: gray;
+}
+</style>
 </head>
+
 <body>
 
-<div style="text-align: center;">
-<button onclick="omikuji()" style="padding: 7px 7px;">
-  おみくじ
-</button>
-  <p id="result" style="min-height: 10em;"></p>
+<div class="container">
+  <button onclick="omikuji()">おみくじ</button>
 
   <p id="result"></p>
 
   <p>
-    <a href="index.html" style="font-size: 12px; color: gray;">もどる</a>
+    <a href="index.html" class="back">もどる</a>
   </p>
-
-
 </div>
 
 <script>
@@ -36,20 +76,18 @@ function omikuji() {
   const random = Math.floor(Math.random() * results.length);
 
   const text = results[random];
-let i = 0;
-const speed = 150;
+  let i = 0;
+  const speed = 150;
 
-document.getElementById("result").textContent = ""; // 最初に空にする
+  const resultEl = document.getElementById("result");
+  resultEl.textContent = "";
 
-const interval = setInterval(() => {
-  document.getElementById("result").textContent += text[i];
-  i++;
-  if (i >= text.length) clearInterval(interval);
-}, speed);
-
+  const interval = setInterval(() => {
+    resultEl.textContent += text[i];
+    i++;
+    if (i >= text.length) clearInterval(interval);
+  }, speed);
 }
-
-
 </script>
 
 </body>
