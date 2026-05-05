@@ -1,5 +1,5 @@
 {
-  "name": "solune_lab",
+  "name": "solune_lab(おみくじ)",
   "short_name": "おみくじ",
   "start_url": "./index.html",
   "display": "standalone",
