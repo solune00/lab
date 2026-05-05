@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ドットフォント -->
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<style>
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background: #222;
+  color: white;
+  font-family: 'Press Start 2P', monospace;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+button {
+  padding: 16px 20px;
+  font-size: 12px;
+  border-radius: 12px; 
+  border: 2px solid white;
+  background: black;
+  color: white;
+
+  box-shadow: 4px 4px 0 white;
+}
+
+button:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+#result {
+  margin-top: 30px;
+  font-size: 14px;
+  line-height: 1.8;
+
+ min-height: 4em;
+}
+
+.back {
+  display: inline-block;
+  margin-top: 20px;
+  color: #aaa;
+  font-size: 10px;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+  <button onclick="omikuji()">▶ START</button>
+  <p id="result"></p>
+  <a href="index.html" class="back">BACK</a>
+</div>
+
+<script>
+function omikuji() {
+  const results = [">> TUNE UP", ">> TAKE FIVE", ">> QUIET NOW", ">> ALL THE THINGS YOU ARE", ">> WHEN YOU WISH UPON A STAR"];
+  const random = Math.floor(Math.random() * results.length);
+
+  const text = results[random];
+  let i = 0;
+  const speed = 80;
+  const resultEl = document.getElementById("result");
+  resultEl.textContent = "";
+
+  const interval = setInterval(() => {
+    resultEl.textContent += text[i];
+    i++;
+    if (i >= text.length) clearInterval(interval);
+  }, speed);
+}
+</script>
+</body>
+</html>
