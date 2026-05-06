@@ -31,6 +31,8 @@ button {
   background: white;
   color: #333;
   box-shadow: 4px 4px 0 #333;
+margin-top: 30px;
+margin-bottom: 5px;
 }
 
 button:active {
@@ -52,7 +54,7 @@ button:active {
 }
 
 .back {
-  display: inline-block;
+  display: block;
   margin-top: 30px;
   font-size: 10px;
   color: #666;
@@ -63,10 +65,11 @@ button:active {
 <body>
 
 <div class="container">
-  <button onclick="draw()">▶ DRAW</button>
-
+ 
   <div id="result"></div>
   <div id="remaining"></div>
+
+ <button onclick="draw()">▶ DRAW</button>
 
   <a href="index.html" class="back">BACK</a>
 </div>
