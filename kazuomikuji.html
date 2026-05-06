@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<title>数字おみくじ</title>
+
+<style>
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+
+  background: #fff7ef; /* ← 薄いオレンジ */
+  font-family: 'Press Start 2P', monospace;
+}
+
+.container {
+  text-align: center;
+}
+
+button {
+  padding: 16px 20px;
+  font-size: 12px;
+  border-radius: 12px;
+
+  border: 2px solid #333;
+  background: white;
+  color: #333;
+
+  box-shadow: 4px 4px 0 #333;
+}
+
+button:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+#result {
+  margin-top: 40px;
+  font-size: clamp(48px, 15vw, 120px);
+  color: #333;
+  min-height: 2em;
+}
+
+.back {
+  display: inline-block;
+  margin-top: 30px;
+  font-size: 10px;
+  color: #666;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <button onclick="draw()">▶ DRAW</button>
+
+  <div id="result"></div>
+
+  <a href="index.html" class="back">BACK</a>
+</div>
+
+<script>
+function draw() {
+  // 1〜12の完全ランダム
+  const num = Math.floor(Math.random() * 12) + 1;
+
+  document.getElementById("result").textContent = num;
+}
+</script>
+
+</body>
+</html>

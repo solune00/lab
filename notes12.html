@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<title>カードドロー</title>
+
+<style>
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background: #f7f3e8;
+  font-family: 'Press Start 2P', monospace;
+}
+
+.container {
+  text-align: center;
+}
+
+button {
+  padding: 16px 20px;
+  font-size: 12px;
+  border-radius: 12px;
+  border: 2px solid #333;
+  background: white;
+  color: #333;
+  box-shadow: 4px 4px 0 #333;
+}
+
+button:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+#result {
+  margin-top: 40px;
+  font-size: clamp(48px, 15vw, 120px);
+  color: #333;
+  min-height: 2em;
+}
+
+#remaining {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #666;
+}
+
+.back {
+  display: inline-block;
+  margin-top: 30px;
+  font-size: 10px;
+  color: #666;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <button onclick="draw()">▶ DRAW</button>
+
+  <div id="result"></div>
+  <div id="remaining"></div>
+
+  <a href="index.html" class="back">BACK</a>
+</div>
+
+<script>
+let pool = [];
+
+function createPool() {
+  pool = [
+    "C", "C#(Db)", "D", "D#(Eb)", "E",
+    "F", "F#(Gb)", "G", "G#(Ab)", "A", "A#(Bb)", "B"
+  ];
+
+  for (let i = pool.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+}
+
+function draw() {
+  if (pool.length === 0) {
+    createPool();
+  }
+
+  const num = pool.pop();
+
+  // 残り枚数更新（←ここ重要）
+  document.getElementById("remaining").textContent =
+    "LEFT: " + pool.length;
+
+  // 一発表示
+  document.getElementById("result").textContent = num;
+}
+
+// 初期表示
+createPool();
+document.getElementById("remaining").textContent =
+  "LEFT: " + pool.length;
+</script>
+
+</body>
+</html>
