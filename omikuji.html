@@ -33,6 +33,7 @@ button {
 
   box-shadow: 4px 4px 0px black;
   cursor: pointer;
+
 }
 
 button:active {
@@ -46,12 +47,14 @@ button:active {
   min-height: 6em;
   font-size: clamp(20px, 6vw, 32px);
   margin-top: 20px;
-
+margin-bottom: 5px;
  font-family: "Times New Roman", "Hiragino Mincho ProN", "Yu Mincho", serif;
 
 }
 
 .back {
+display: block;
+margin-top: 40px;
   font-size: 14px;
   color: gray;
 }
@@ -61,9 +64,10 @@ button:active {
 <body>
 
 <div class="container">
-  <button onclick="omikuji()">おみくじ</button>
-
+ 
   <p id="result"></p>
+
+ <button onclick="omikuji()">おみくじ</button>
 
   <p>
     <a href="index.html" class="back">もどる</a>
