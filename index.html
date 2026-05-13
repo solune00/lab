@@ -16,14 +16,17 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
+
+
 }
+
 
 p {
   margin: 9px;
 }
 
 div {
-  width: 300px;
+  width: 100%;
   text-align: center;
 }
 
@@ -33,15 +36,42 @@ div {
   margin-top: -10px;
 }
 
+h1 {
+  margin-bottom: 30px;
+font-size: 3em;
+}
+
+hr {
+  width: 60%;
+ border: none;
+  border-top: 1px solid gray;
+ margin-bottom: 30px;
+
+  }
+
+.games {
+  margin-bottom: 20px;
+}
+
+
+
+
 /* 下のゾーン用 */
 .footer {
-  margin-top: 80px;
-  font-size: 16px;
+  margin-top: 50px;
+  font-size: 15px;
   text-align: center;
-　line-height: 1.2;
+ line-height: 1.2;
 }
 .footer p {
   margin: 0; /* ←上下の余白を小さく */
+}
+
+.counter-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
 }
 
 </style>
@@ -49,25 +79,30 @@ div {
 </head>
 <body>
 
-<p><img src="top.jpg" alt="topimage"</p>
-
 <h1>solune_lab.</h1>
 
-<div>
+
+<p>
+ミニゲーム置き場
+</p>
+
+<hr>
+
+<div class="games">
 <p>
   <a href="omikuji.html">おみくじ</a>
 </p>
 <p class="description">おみくじです。</p>
 </div>
 
-<div>
+<div class="games">
 <p>
   <a href="kazuomikuji.html">数字おみくじ</a>
 </p>
 <p class="description">1~12のサイコロ</p>
 </div>
 
-<div>
+<div class="games">
 <p>
   <a href="notes12.html">音名カード</a>
 </p>
@@ -75,6 +110,19 @@ div {
 </div>
 
 <div class="footer">
+
+<div class="counter-line">
+
+あなたは
+<span id="counter">
+
+<!--タグはここから--><table border="0" cellspacing="0" cellpadding="0"><tr><td align="center"><a href="http://www.rays-counter.com/"><img src="http://www.rays-counter.com/d1309_f6_162/6a041209214bf/" alt="アクセスカウンター" border="0"></a></td></tr><tr><td align="center"><img src="http://www.rays-counter.com/images/counter_01.gif" border="0"><img src="http://www.rays-counter.com/images/counter_02.gif" border="0"><img src="http://www.rays-counter.com/images/counter_03.gif" border="0"><img src="http://www.rays-counter.com/images/counter_04.gif" border="0" ><img src="http://www.rays-counter.com/images/counter_05.gif" border="0"></td></tr></table><!--ここまで-->
+
+</span>
+人目のお客様です
+
+</div>
+
 
 
 
